@@ -9,7 +9,7 @@ It consists of five separate scripts:
 
 ## Behavior
 
-The code starts a video capture (webcam) and, for every frame, calls the detect_and_decode function, searching for any QR code that could be on scene. When a code is detected, the program reads it to extract its data and draws a bounding box around it. To make comparisons easier, the FPS count is displayed in the upper left corner of the window; Below it, when a QR code is detected, its size (in pixels) is also displayed.
+The code starts a video capture (webcam) and, for every frame, calls the detect_and_decode function, searching for any QR code that could be on scene. When a code is detected, the program reads it to extract its data and draws a bounding box around it. To make comparisons easier, the FPS count is displayed in the upper left corner of the window; below it, when a QR code is detected, its size (in pixels) is also displayed.
 
 ## Usage
 
