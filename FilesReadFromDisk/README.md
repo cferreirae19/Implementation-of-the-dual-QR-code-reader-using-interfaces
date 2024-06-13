@@ -6,7 +6,7 @@ It consists of six separate scripts:
 - qr_code_detector_v1.py: This is the QReader detector.
 - qr_code_detector_v2.py: This is the OpenCV detector.
 - readingQR_cv2.py: Custom Python module needed for the OpenCV reader.
-- main_single_load.py: Usually, this script never takes part pn the code execution; it was created for convenience purposes, to execute the detection on a single image at a time.
+- main_single_load.py: Usually, this script never takes part on the code execution; it was created for convenience purposes, to execute the detection on a single image at a time.
 
 ## Behavior
 
