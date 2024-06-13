@@ -1,11 +1,10 @@
 # Implementation-of-the-dual-QR-code-reader-using-interfaces
-It consists of five separate files:
+It consists of two separate folders:
 
-- interface.py: This is the interface implemented by both readers.
-- main.py: Main script of the project; here we can choose between both readers, by commenting/uncommenting lines 6/7
-- qr_code_detector_v1.py: This is the QReader detector.
-- qr_code_detector_v2.py: This is the OpenCV detector.
-- readingQR_cv2.py: Custom Python module needed for the OpenCV reader.
+- VideoCapture: it contains the executable code to launch the webcam and start detecting QR codes.
+- FilesReadFromDisk: it contains the executable code to test the dual detector by reading images from memory, evaluating its performance in terms of area (in pixels) and execution time and saving the results on a txt file.
+
+More detailed instructions about both modes/folders are included in their own readme files.
 
 ## Installation
 
