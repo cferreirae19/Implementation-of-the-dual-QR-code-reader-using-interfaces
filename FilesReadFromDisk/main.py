@@ -57,6 +57,7 @@ def process_images(detectors, image_files, log_file):
                             height = int(bbox[3] - bbox[1])
                             area = width * height
                             log.write(f"    QR Code found. Size: {width} x {height} = {area} pixels\n")
+                            log.write(f"    QR Code data: {decoded_text[0][0]}\n")
                         else:
                             log.write("    No QR Code found.\n")
                     elif detector_name == 'OpenCV':
@@ -74,7 +75,7 @@ def main():
     """
     Main function to perform batch QR code detection on images in a directory.
     """
-    image_directory = '.'  # Current directory or specify your image directory here
+    image_directory = './Test_QR_Codes'  # Current directory or specify your image directory here
     log_file = 'qr_code_detection_results.txt'
 
     # Initialize detectors

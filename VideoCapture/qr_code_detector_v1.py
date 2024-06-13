@@ -4,7 +4,7 @@ from qreader import QReader
 
 class QRCodeDetectorV1(QRCodeDetector):
     def __init__(self):
-        self.qreader = QReader()
+        self.qreader = QReader(model_size='n')
 
     def detect_and_decode(self, frame,):
         image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
