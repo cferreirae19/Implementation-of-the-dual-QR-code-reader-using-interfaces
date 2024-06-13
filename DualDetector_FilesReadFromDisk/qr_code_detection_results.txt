@@ -1,0 +1,48 @@
+Image: ./TestImage5.jpg
+  Detector: QReader
+    Execution time: 3.4386 seconds
+    QR Code found. Size: 131 x 139 = 18209 pixels
+  Detector: OpenCV
+    Execution time: 0.0107 seconds
+    QR Code found. Size: 131 x 138 = 18078 pixels
+
+Image: ./TestImage2.jpg
+  Detector: QReader
+    Execution time: 0.6685 seconds
+    QR Code found. Size: 70 x 69 = 4830 pixels
+  Detector: OpenCV
+    Execution time: 0.0223 seconds
+    No QR Code found.
+
+Image: ./TestImage3.jpg
+  Detector: QReader
+    Execution time: 1.1888 seconds
+    QR Code found. Size: 1848 x 1833 = 3387384 pixels
+  Detector: OpenCV
+    Execution time: 0.1912 seconds
+    QR Code found. Size: 1777 x 1777 = 3157729 pixels
+
+Image: ./TestImage6.jpg
+  Detector: QReader
+    Execution time: 0.9293 seconds
+    QR Code found. Size: 653 x 690 = 450570 pixels
+  Detector: OpenCV
+    Execution time: 0.0413 seconds
+    QR Code found. Size: 653 x 693 = 452529 pixels
+
+Image: ./TestImage1.jpg
+  Detector: QReader
+    Execution time: 0.6674 seconds
+    QR Code found. Size: 60 x 60 = 3600 pixels
+  Detector: OpenCV
+    Execution time: 0.0217 seconds
+    No QR Code found.
+
+Image: ./TestImage4.jpg
+  Detector: QReader
+    Execution time: 0.9291 seconds
+    QR Code found. Size: 660 x 690 = 455400 pixels
+  Detector: OpenCV
+    Execution time: 1.2302 seconds
+    QR Code found. Size: 653 x 692 = 451876 pixels
+
