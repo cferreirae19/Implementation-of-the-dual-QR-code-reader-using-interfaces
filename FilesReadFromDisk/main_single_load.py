@@ -3,17 +3,16 @@ from qr_code_detector_v2 import QRCodeDetectorV2  # OpenCV
 import cv2
 
 # Choose which detector to use
-#qr_code_detector = QRCodeDetectorV1()
-qr_code_detector = QRCodeDetectorV2()
+qr_code_detector = QRCodeDetectorV1()
+#qr_code_detector = QRCodeDetectorV2()
 
-# Load the image from memory
-img = cv2.imread("TestImage5.jpg")
+img = cv2.imread("./Test_QR_Codes/TestCollage.png")
 
-# Ensure the image is loaded
 if img is not None:
-    cv2.imshow("Detect QR Code from Webcam", img)
-    qr_code_detector.detect_and_decode(img)
-    cv2.waitKey()
-    cv2.destroyAllWindows()
+    decoded_results = qr_code_detector.detect_and_decode(img)
+    for result in decoded_results:
+        qr_data, width, height, area = result
+        print(f"QR Code found. Size: {width} x {height} = {area} pixels")
+        print(f"QR Code data: {qr_data}")
 else:
     print("Error: Image not loaded.")

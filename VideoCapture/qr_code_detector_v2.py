@@ -4,4 +4,4 @@ import readingQR_cv2 as rd
 
 class QRCodeDetectorV2(QRCodeDetector):
     def detect_and_decode(self, frame):
-        rd.detect_and_decode(frame)
+        return rd.detect_and_decode(frame)
