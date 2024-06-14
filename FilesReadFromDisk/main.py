@@ -28,7 +28,7 @@ def process_images(detectors, image_files, log_file):
 
                     log.write(f"  Detector: {detector_name}\n")
                     log.write(f"    Execution time: {elapsed_time:.4f} seconds\n")
-
+                    
                     if decoded_results:
                         for result in decoded_results:
                             if detector_name == 'QReader':
