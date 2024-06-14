@@ -12,9 +12,7 @@ The only prerequisite is to have an Ubuntu (or any other Debian-based distro), a
 
 To facilitate the installation of OpenCV, pyzbar, DBR and QReader for the user, a bash script (install_dependencies.sh) is included that performs this task autonomously. Its execution is as follows:
 
-    ```
     ./install_dependencies.sh
-    ```
 
 In case you want to proceed with a manual installation, the steps to perform are as follows:
 
