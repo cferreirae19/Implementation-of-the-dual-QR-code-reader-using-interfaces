@@ -31,7 +31,3 @@ More detailed instructions about both modes/folders are included in their own re
     ```
     pip install qreader
     ```
-
-## Usage
-
-As mentioned previously, the only thing the user has to do is select the reader he/she wants to use by commenting/uncommenting its corresponding code line (specifically, lines 6 and/or 7 from the main.py script), save it and then run the main script.
