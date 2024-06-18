@@ -1,12 +1,15 @@
 import cv2
 from interface import QRCodeDetector
 from qreader import QReader
+import time
 
 class QRCodeDetectorV1(QRCodeDetector):
     def __init__(self):
         self.qreader = QReader(model_size='n')
+        self.last_detection_times = {}
 
     def detect_and_decode(self, frame):
+        current_time = time.time()
         image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         decoded_texts = self.qreader.detect_and_decode(image=image, return_detections=True)
 
@@ -21,7 +24,11 @@ class QRCodeDetectorV1(QRCodeDetector):
                 label = 'Size: %d x %d = %d' % (w, h, a)
                 cv2.putText(frame, label, (start_point[0], start_point[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
                 cv2.rectangle(frame, start_point, end_point, (255, 0, 255), 3)
-                print("QR data: ", decoded_text)
+                
+                # Print QR code data if 5 seconds have passed since the last detection
+                if decoded_text not in self.last_detection_times or current_time - self.last_detection_times[decoded_text] > 5:
+                    self.last_detection_times[decoded_text] = current_time
+                    print("QR data: ", decoded_text)
         
         cv2.imshow("Detect QR Code from Webcam", frame)
         

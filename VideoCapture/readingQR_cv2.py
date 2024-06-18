@@ -13,7 +13,6 @@ def extract_qr_data(qr_codes):
         for qr_code in qr_codes:
             qr_data = qr_code.data.decode('utf-8')
             qr_data_list.append(qr_data)
-            print("QR Code Data:", qr_data)
     return qr_data_list
 
 def draw_qr_code_rectangles(frame, qr_codes):
@@ -37,4 +36,4 @@ def detect_and_decode(frame):
     qr_data_list = extract_qr_data(qr_codes)
     draw_qr_code_rectangles(frame, qr_codes)
     cv2.imshow("Detect QR Code from Webcam", frame)
-    return qr_data_list
+    return qr_codes, qr_data_list
