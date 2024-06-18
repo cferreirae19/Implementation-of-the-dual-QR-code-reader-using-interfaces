@@ -1,11 +1,11 @@
-from qr_code_detector_v1 import QRCodeDetectorV1    # QReader
-from qr_code_detector_v2 import QRCodeDetectorV2    # OpenCV
+from qr_code_detector_qreader import QRCodeDetector_QReader
+from qr_code_detector_opencv import QRCodeDetector_OpenCV
 import cv2
 import time
 
 # Choose which detector to use
-qr_code_detector = QRCodeDetectorV1()
-#qr_code_detector = QRCodeDetectorV2()
+#qr_code_detector = QRCodeDetector_QReader()
+qr_code_detector = QRCodeDetector_OpenCV()
 
 # Open the camera
 capture = cv2.VideoCapture(0)

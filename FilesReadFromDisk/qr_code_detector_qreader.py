@@ -2,7 +2,7 @@ import cv2
 from interface import QRCodeDetector
 from qreader import QReader
 
-class QRCodeDetectorV1(QRCodeDetector):
+class QRCodeDetector_QReader(QRCodeDetector):
     def __init__(self):
         self.qreader = QReader(model_size='n')
 
@@ -13,12 +13,14 @@ class QRCodeDetectorV1(QRCodeDetector):
         results = []
         if len(decoded_texts[0]) != 0:
             for decoded_text, detection in zip(decoded_texts[0], decoded_texts[1]):
-                bbox = detection['bbox_xyxy']
-                start_point = (int(bbox[0]), int(bbox[1]))
-                end_point = (int(bbox[2]), int(bbox[3]))
+                bounding_box = detection['bbox_xyxy']
+                start_point = (int(bounding_box[0]), int(bounding_box[1]))
+                end_point = (int(bounding_box[2]), int(bounding_box[3]))
+                
                 width = abs(start_point[0] - end_point[0])
                 height = abs(start_point[1] - end_point[1])
                 area = width * height
+                
                 results.append((decoded_text, width, height, area))
 
         return results

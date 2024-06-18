@@ -3,9 +3,9 @@ from interface import QRCodeDetector
 from qreader import QReader
 import time
 
-class QRCodeDetectorV1(QRCodeDetector):
+class QRCodeDetector_QReader(QRCodeDetector):
     def __init__(self):
-        self.qreader = QReader(model_size='n')
+        self.qreader = QReader(model_size='n')  # Also tested with model_size='s'
         self.last_detection_times = {}
 
     def detect_and_decode(self, frame):
@@ -15,14 +15,19 @@ class QRCodeDetectorV1(QRCodeDetector):
 
         if len(decoded_texts[0]) != 0:
             for decoded_text, detection in zip(decoded_texts[0], decoded_texts[1]):
-                bbox = detection['bbox_xyxy']
-                start_point = (int(bbox[0]), int(bbox[1]))
-                end_point = (int(bbox[2]), int(bbox[3]))
-                w = abs(start_point[0] - end_point[0])
-                h = abs(start_point[1] - end_point[1])
-                a = w * h
-                label = 'Size: %d x %d = %d' % (w, h, a)
-                cv2.putText(frame, label, (start_point[0], start_point[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                bounding_box = detection['bbox_xyxy']
+                start_point = (int(bounding_box[0]), int(bounding_box[1]))
+                end_point = (int(bounding_box[2]), int(bounding_box[3]))
+                
+                # Width, height and area of the bounding box
+                width = abs(start_point[0] - end_point[0])
+                height = abs(start_point[1] - end_point[1])
+                area = width * height
+                
+                # Label showing the bounding box size
+                dimensions_label = 'Size: %d x %d = %d' % (width, height, area)
+                cv2.putText(frame, dimensions_label, (start_point[0], start_point[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                
                 cv2.rectangle(frame, start_point, end_point, (255, 0, 255), 3)
                 
                 # Print QR code data if 5 seconds have passed since the last detection
